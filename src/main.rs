@@ -1,7 +1,14 @@
+use axum::{routing::get, Router};
 use dotenv::dotenv;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     dotenv().ok();
 
-    println!("Hello, world!");
+    let app = Router::new().route("/", get(|| async { "Hello, World!" }));
+
+    axum::Server::bind(&"0.0.0.0:3000".parse().unwrap())
+        .serve(app.into_make_service())
+        .await
+        .unwrap();
 }
