@@ -8,7 +8,9 @@ edition = "2021"
 [dependencies]
 axum = "0.6.7"
 dotenv = "0.15.0"
+futures = "0.3.26"
 hyper = "0.14.24"
+mongodb = { version = "2.3.1", features = ["zstd-compression", "snappy-compression", "zlib-compression"] }
 serde = { version = "1.0.152", features = ["derive"] }
 tokio = { version = "1.25.0", features = ["macros", "rt-multi-thread"] }
 tower = "0.4.13"
