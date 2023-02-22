@@ -1518,6 +1518,7 @@ dependencies = [
  "tower",
  "tower-layer",
  "tower-service",
+ "tracing",
 ]
 
 [[package]]
@@ -1696,6 +1697,7 @@ dependencies = [
  "serde",
  "tokio",
  "tower",
+ "tower-http",
 ]
 
 [[package]]
