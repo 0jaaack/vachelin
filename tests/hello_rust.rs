@@ -15,16 +15,13 @@ async fn hello_rust() {
         .oneshot(Request::builder().uri("/").body(Body::empty()).unwrap())
         .await
         .unwrap();
-    assert_eq!(
-        response
-            .headers()
-            .get("Content-Type")
-            .unwrap()
-            .to_str()
-            .unwrap()
-            .contains(&"text/plain"),
-        true
-    );
+    let content_type = response
+        .headers()
+        .get("Content-Type")
+        .unwrap()
+        .to_str()
+        .unwrap();
+    assert_eq!(content_type.contains(&"text/plain"), true);
     assert_eq!(response.status(), StatusCode::OK);
 
     let body = hyper::body::to_bytes(response.into_body()).await.unwrap();
