@@ -8,7 +8,7 @@ use tower::ServiceExt;
 use vachelin::app;
 
 #[tokio::test]
-async fn hello_world() {
+async fn hello_rust() {
     let app = app().await;
 
     let response = app
