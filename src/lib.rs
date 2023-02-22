@@ -11,7 +11,7 @@ pub async fn app() -> Router {
         .with_state(client)
 }
 
-async fn client() -> Client {
+pub async fn client() -> Client {
     dotenv().ok();
 
     let mongo_uri: String =
